@@ -22,7 +22,7 @@ export const onFailure = (error) => {
 }
 
 export const onCreateFoodSuccess = () => {
-    messageContainer.innerText = 'You have created an Asian food!! :)'
+    messageContainer.innerText = 'You have created a food!! :)'
 }
 
 export const onShowFoodSuccess = (food) => {
@@ -33,6 +33,24 @@ export const onShowFoodSuccess = (food) => {
         <p>${food.isVegan}</p>
         <p>${food.minutesToCook} </p>
         <p>${food._id}</p>
+
+        <form data-id="${food._id}">
+        <input type="text" name="name" value="${food.name}" />
+        <input type="text" name="countryOfOrigin" value="${food.countryOfOrigin}" />
+        <input type="boolean" name="isVegan" value="${food.isVegan}" />
+        <input type="number" name="minutesToCook" value="${food.minutesToCook}" />
+        <input type="submit" value="Update Food" />
+        </form>
+
+        <button type="button" data-id="${food._id}">Delete Food</button>
     `
     showFoodContainer.appendChild(div)
+}
+
+export const onUpdateFoodSuccess = () => {
+    messageContainer.innerText = 'Update was successful :)'
+}
+
+export const onDeleteFoodSuccess = () => {
+    messageContainer.innerText = 'Delete was successful :)'
 }
